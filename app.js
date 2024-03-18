@@ -58,7 +58,7 @@ client.connect()
                 client.close();
             }) */
         
-        var mysort = {name: 1}
+        /* var mysort = {name: 1}
         dbo.collection('customers').find()
             .sort(mysort)
             .toArray()
@@ -66,6 +66,12 @@ client.connect()
                 console.log(`Successfully sorted ${items.length} documents.`)
                 console.log(items);
                 client.close();
-            })
+            }) */
+        
+        var myquery = { address: 'Mountain 21' }
+        dbo.collection('customers').deleteOne(myquery).then(function() {
+            console.log("1 document deleted");
+            client.close();
+        })
     })
     .catch(error => console.log('Failed to connect', error))
