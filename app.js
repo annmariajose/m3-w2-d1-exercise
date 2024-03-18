@@ -49,11 +49,21 @@ client.connect()
             client.close();
         }) */
 
-        var query = {address: "Park Lane 38"}
+        /* var query = {address: "Park Lane 38"}
         dbo.collection('customers').find(query)
             .toArray()
             .then(items => {
                 console.log(`Successfully found ${items.length} documents.`)
+                console.log(items);
+                client.close();
+            }) */
+        
+        var mysort = {name: 1}
+        dbo.collection('customers').find()
+            .sort(mysort)
+            .toArray()
+            .then(items => {
+                console.log(`Successfully sorted ${items.length} documents.`)
                 console.log(items);
                 client.close();
             })
