@@ -44,9 +44,18 @@ client.connect()
             client.close();
         }) */
 
-        dbo.collection('customers').findOne({}).then(function(res) {
+        /* dbo.collection('customers').findOne({}).then(function(res) {
             console.log(res.name);
             client.close();
-        })
+        }) */
+
+        var query = {address: "Park Lane 38"}
+        dbo.collection('customers').find(query)
+            .toArray()
+            .then(items => {
+                console.log(`Successfully found ${items.length} documents.`)
+                console.log(items);
+                client.close();
+            })
     })
     .catch(error => console.log('Failed to connect', error))
