@@ -23,7 +23,7 @@ client.connect()
             client.close()
         }) */
 
-        var custData = [
+        /* var custData = [
             { name: 'John', address: 'Highway 71'},
             { name: 'Peter', address: 'Lowstreet 4'},
             { name: 'Amy', address: 'Apple st 652'},
@@ -41,6 +41,11 @@ client.connect()
         ];
         dbo.collection('customers').insertMany(custData).then(function(res) {
             console.log("Number of documents inserted:" + res.insertedCount);
+            client.close();
+        }) */
+
+        dbo.collection('customers').findOne({}).then(function(res) {
+            console.log(res.name);
             client.close();
         })
     })
